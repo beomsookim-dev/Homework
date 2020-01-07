@@ -29,6 +29,7 @@
 		.wrap {
 			width: 400px;
 			margin: 50px auto auto;
+			align-items: center;
 		}
 
 		.item {
@@ -54,6 +55,18 @@
 		.price {
 			margin: auto 10px auto;
 		}	
+		
+/* '주문하기' 버튼을 가운데 정렬하려면??? */
+		.out {
+			width: 100%;
+			text-align: center;
+		}
+
+		.orderbtn {
+			display: inline-block;
+		/* width: 50%; 있어도 되고 없어도 되고 */
+		}
+		
 
 	</style>
 
@@ -75,63 +88,68 @@
 			<p3 class="detail">이 사과로 말할 것 같으면 꿀을 먹고 있는건지 사과를 먹고 있는건지 헷갈릴 정도로 맛있는 사과에요.</p3>
 		</div>
 
-<!-- 상품 설명 끝나고 첫번째 '주문자 이름' 박스 사이에 간격이 있어야 하는데 간격이 없습니다. 간격을 어떻게 하면 넣을 수 있을까요?? -->
+		<!-- 상품 설명 끝나고 첫번째 '주문자 이름' 박스 사이에 간격이 있어야 하는데 간격이 없습니다. 간격을 어떻게 하면 넣을 수 있을까요?? -->
 
-<!-- 주문자 이름 -->
-<div class="input-group mb-3">
-	<div class="input-group-prepend">
-		<span class="input-group-text" id="basic-addon1">주문자 이름</span>
-	</div>
-	<input type="text" class="form-control" placeholder="이름을 입력하세요." aria-label="Username" aria-describedby="basic-addon1">
+		<!-- 주문자 이름 -->
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">주문자 이름</span>
+			</div>
+			<input type="text" class="form-control" placeholder="이름을 입력하세요." aria-label="Username" aria-describedby="basic-addon1">
+		</div>
+
+		<!-- 수량 -->
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="inputGroupSelect01">수량</label>
+			</div>
+			<select class="custom-select" id="inputGroupSelect01">
+				<option selected>수량을 선택하세요.</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="other">직접 입력</option>
+			</select>
+
+			<!-- 원하는 수량이 없을시 직접입력하는 칸도 넣고자 하는데, 아래로 붙여서 넣고 싶은데 옆으로 붙어버리네요. 해결할 수 있는 방법이 무엇일까요?? -->
+			<br>
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">직접입력</span>
+			</div>
+			<input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+		</div>
+
+
+		<!-- 주소 -->
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">주소</span>
+			</div>
+			<input type="text" class="form-control" placeholder="주소를 입력하세요." aria-label="Username" aria-describedby="basic-addon1">
+		</div>
+
+		<!-- 전화번호 -->
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">전화번호</span>
+			</div>
+			<input type="text" class="form-control" placeholder="전화번호를 입력하세요." aria-label="Username" aria-describedby="basic-addon1">
+		</div>
+
+		<!-- '주문하기' 버튼 만들기 -->
+		<div class="out">
+		<div class="orderbtn">
+			<button class="btn btn-primary" type="submit">주문하기</button>
+		</div>
 </div>
-
-<!-- 수량 -->
-<div class="input-group mb-3">
-	<div class="input-group-prepend">
-		<label class="input-group-text" for="inputGroupSelect01">수량</label>
 	</div>
-	<select class="custom-select" id="inputGroupSelect01">
-		<option selected>수량을 선택하세요.</option>
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="other">직접 입력</option>
-	</select>
-
-	<!-- 원하는 수량이 없을시 직접입력하는 칸도 넣고자 하는데, 아래로 붙여서 넣고 싶은데 옆으로 붙어버리네요. 해결할 수 있는 방법이 무엇일까요?? -->
-	<br>
-	<div class="input-group-prepend">
-		<span class="input-group-text" id="basic-addon1">직접입력</span>
-	</div>
-	<input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-
-
-<!-- 주소 -->
-<div class="input-group mb-3">
-	<div class="input-group-prepend">
-		<span class="input-group-text" id="basic-addon1">주소</span>
-	</div>
-	<input type="text" class="form-control" placeholder="주소를 입력하세요." aria-label="Username" aria-describedby="basic-addon1">
-</div>
-
-<!-- 전화번호 -->
-<div class="input-group mb-3">
-	<div class="input-group-prepend">
-		<span class="input-group-text" id="basic-addon1">전화번호</span>
-	</div>
-	<input type="text" class="form-control" placeholder="전화번호를 입력하세요." aria-label="Username" aria-describedby="basic-addon1">
-</div>
-
-
-</div>
 
 </body>
 </html>
