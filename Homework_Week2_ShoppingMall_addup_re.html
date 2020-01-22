@@ -53,71 +53,63 @@
     .orders {
       margin-top: 100px;
     }
+     table {
+      border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+    }
+    th {
+        border: 1px solid #c8c8c8;
+        padding: 8px;
+        background-color: skyblue;
+    }
+
+
   </style>
 
   <!-- script ----------------------------------------->
 
-  <script type="text/javascript">
+    <script>
+      function checknumb(p){
+        var phonenumb = /^(01[016789]{1}|0[3-9]{1}[0-9]{1})[-][0-9]{3,4}[-][0-9]{4}$/;
+        return phonenumb.test(p);   }
 
-    function isCellPhone(p) {
-      var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})[-][0-9]{3,4}[-][0-9]{4}$/;
-      return regExp.test(p);
-    }
-
-    function order() {
-      let name = $('#order_name').val();
-      let count = $('#order_count').val();
-      let address = $('#order_address').val();
-      let phone = $('#order_phone').val();
+      function order() {
+        let name = $('#order_name').val() ;
+        let numb = $('#order_count').val();
+        let adrs = $('#order_adrs').val();
+        let phone = $('#order_phone').val();
 
         // 이 부분을 넣어야 새로운 입력값을 행 생성해서 아래로 내리는 것 같음
         let temp_html = '<tr>\
-        <td>'+name+'</td>\
-        <td>'+numb+'</td>\
-        <td>'+adrs+'</td>\
-        <td>'+phone+'</td>\
-        </tr>';
+            <td>'+name+'</td>\
+            <td>'+numb+'</td>\
+            <td>'+adrs+'</td>\
+            <td>'+phone+'</td>\
+            </tr>';
 
-
-        if (name == ''){
-          alert('이름을 입력해주세요')
-          $('#order_name').focus()
-        } 
-
-          else if (count == ''){
-          alert('수량을 입력해주세요')
-          $('#order_count').focus()
-        }
-
-          else if (address == ''){
-          alert('주소를 입력해주세요')
-          $('#order_address').focus()
-        } 
-
-          else if (phone == ''){
-          alert('휴대폰번호를 입력해주세요')
-          $('#order_phone').focus()
-        } 
-
-          else if (!isCellPhone(phone)) {
-          alert('휴대폰번호 입력 형식이 틀립니다. \n 010-0000-0000으로 입력해주세요')
-        }
-
-          else { 
-          alert ('주문완료') ; 
-
-          /* 
+                
+        if (name == '' ) 
+          { alert ('이름을 입력하세요.')  }
+        else if (numb == '' ) 
+          { alert ('수량을 입력하세요.')  }       
+        else if (adrs == '' ) 
+          { alert ('주소를 입력하세요.')  }
+        else if (phone == '' )
+          { alert ('전화번호를 입력하세요.')  }
+        else if (!checknumb(phone)) 
+          { alert('휴대폰번호 입력 형식이 틀립니다. 010-0000-0000 으로 입력해주세요.')  }
+        else 
+          { alert ('주문완료') ; 
           $('#tb_order').append(temp_html);
           //테이블에 입력한 뒤 입력값 지워주는 부분
           $('#order_name').val('') ;
-          $('#order_count').val('') ;
-          $('#order_address').val('') ;
-          $('#order_phone').val('') ;         */
-        }         
-
-      }
-
-
+            $('#order_count').val('') ;
+            $('#order_adrs').val('') ;
+            $('#order_phone').val('') ; }         
+         }
+          
+      
     </script>
 
 
@@ -152,7 +144,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">주소</span>
           </div>
-          <input type="text" class="form-control" id="order_address" aria-describedby="basic-addon3">
+          <input type="text" class="form-control" id="order_adrs" aria-describedby="basic-addon3">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
